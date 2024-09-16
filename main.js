@@ -11,6 +11,18 @@ class Employee{
     }
 }
 
-const employee = new Employee("Ivan", 21, "web developer", 1500);
+class Developer extends Employee{
+    constructor (name, age, position, baseSalary, programmingLanguage){
+        super(name, age, position, baseSalary);
+        this.programmingLanguage = programmingLanguage;
+    }
 
-console.log(`${employee.name} earn from month: $${employee.calculateSalary()}`);
+    calculateSalary(){
+        const bonus = 500;
+        return this.baseSalary + bonus;
+    }
+}
+
+const developer = new Developer("Ivan", 21, "web developer", 1500);
+
+console.log(`${developer.name} earn from month: $${developer.calculateSalary()}`);
