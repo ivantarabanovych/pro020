@@ -23,6 +23,18 @@ class Developer extends Employee{
     }
 }
 
-const developer = new Developer("Ivan", 21, "web developer", 1500);
+class Manager extends Employee{
+    constructor(name, age, position, baseSalary, teamSize){
+        super(name, age, position, baseSalary);
+        this.teamSize = teamSize;
+    }
 
-console.log(`${developer.name} earn from month: $${developer.calculateSalary()}`);
+    calculateSalary() {
+        const bonusPerTeamSize = 100;
+        return this.baseSalary + (this.teamSize * 100)
+    }
+}
+
+const manager = new Manager("Ivan", 21, "manager", 1500, 25);
+
+console.log(`${manager.name} earn from month: $${manager.calculateSalary()}`);
